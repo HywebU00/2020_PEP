@@ -90,6 +90,7 @@
     @include screen('tablet') {
         .container{
             @include gutter(40px);
+            background: url(../images/bg-dots.png) -200% 64px no-repeat;
         }
     }
 }

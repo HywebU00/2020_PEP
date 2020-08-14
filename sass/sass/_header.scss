@@ -112,16 +112,17 @@
             max-height: 75px;
         }
         @include screen('tablet') {
-            padding: 2px 60px;
+            padding: 2px 10px;
             width: 100%;
             text-align: center;
             height: 60px;
             img {
-                width: auto;
+                width: 100%;
                 height: auto;
                 max-height: 54px;
                 margin: 0px auto;
                 transform: scale(.8);
+                padding-top: 5px;
             }
         }
     }
