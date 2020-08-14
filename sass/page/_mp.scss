@@ -1,62 +1,254 @@
 /////////////////////////////////////////////////////////以下為demo範例///
 // 首頁區塊設定
-// 範例：
-.demosection {
-    [class^="col"] {
-        border: 2px solid #FFF;
-        background: #DEDEDE;
-    }
+.flex{
+    @extend %flex;
 }
-// 首頁輪播
-.mpSlider {
-    width: 100%;
-    padding-bottom: 3em;
-    @include gutter(0);
-    .img-container {
-        @include aspect-ratio(5, 2);
+// hero + mpSlider
+.hero{
+    .container{
+       position: relative; 
+       background: #fff;
     }
-}
-// 廣告輪播
-.adSlider {
-    @include gutter(70px);
-    margin-bottom: 20px;
-    @include screen('mobile') {
-        @include gutter();
-    }
-    .slick-prev {
-        background: url(../vendor/slick/icon_arrow_left_inverse.png) no-repeat center center;
-        background-size: 80%;
-        left: -15px;
-    }
-    .slick-next {
-        background: url(../vendor/slick/icon_arrow_right_inverse.png) no-repeat center center;
-        background-size: 80%;
-        right: -15px;
-    }
-    .img-container {
-        width: 165px;
-        height: 55px;
-        margin: 0px 15px;
-        a {
-            display: block;
-            text-align: center;
-            img {
-                margin: 0 auto;
+    .slider{
+        position: absolute;
+        bottom: 2em;
+        left: 50px;
+        z-index: 1;
+        padding: .35em;
+        background: rgba(255,255,255,0.75);
+        box-shadow: 0 0 21px rgba(0,0,0,.25);
+        border-radius: 2px;
+        // 首頁輪播
+        .mpSlider {
+            // width: 100%;
+            width: 650px;
+            padding-bottom: 3em;
+            @include gutter(0);
+
+            .slick-prev{
+                left: 0;
+                background: url(../vendor/slick/icon_arrow_left.png) center center no-repeat rgba(0,0,0, .5);
+                background-size: 42px;
+            }
+            .slick-next{
+                right: 0;
+                background: url(../vendor/slick/icon_arrow_right.png) center center no-repeat rgba(0,0,0, .5);
+                background-size: 42px;
+            }
+            .slick-dots{
+                bottom: 12px;
+                text-align: left;
+                padding: 0 200px 0 20px;
+
+                li{
+                    margin: 0 6px;
+                    button:before{ width: 10px; height: 10px; }
+                    &.slick-active{
+                        button:before{ background: #222; }
+                    }
+                }
+            }
+            .img-container {
+                // @include aspect-ratio(5, 2);
+                background: rgba(0,0,0,.5);
             }
         }
-        &:focus {
-            &:before {
-                content: "";
-                position: absolute;
-                z-index: 9;
+
+        a.more{
+            position: absolute;
+            right: .35em;
+            bottom: 0;
+            z-index: 10;
+        }
+    }
+    
+    .img-container{
+        background: #fff;
+        @include aspect-ratio(2, 1);
+    }
+
+    @include screen('tablet') {
+        .slider{
+            position: static;
+            // 首頁輪播
+            .mpSlider {
                 width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                box-shadow: 0 0px 0px 3px $primaryColor inset;
             }
+        }
+
+        .hero_img{ display: none; }
+    }
+}
+
+// 最新公告
+.news{
+    .container{
+        background: url(../images/bg-dots.png) left 52px no-repeat;
+        @include gutter(280px);
+    }
+
+    @include screen('tablet') {
+        .container{
+            @include gutter(40px);
+        }
+    }
+}
+
+// 植物疫情大數據
+.big_data{
+    .container{
+        background: url(../images/bg-hr.png) 50% top no-repeat;
+        @include gutter(280px);
+    }
+    .flex{
+        @extend %flex;
+        .tabSet{
+            flex: 0 0 50%;
+            .tabContent{
+                .data_area{ display: none; }
+            }
+        }
+        .data_area{
+            flex: 0 0 auto;
+            flex-basis: calc(50% - 2em);
+
+            background: #fff;
+            margin-left: 2em;
+            padding: 1.5em;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0,0,0,.25);
+            position: relative;
+
+            &:before{
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: #fff;
+                display: block;
+                transform: rotate(45deg);
+                position: absolute;
+                left: -5px;
+                top: 40px;
+            }
+        }
+    }
+
+    @include screen('tablet') {
+        .container{
+            @include gutter(40px);
+        }
+    }
+
+    @include screen('mobile') {
+        .flex{
+            flex-flow: row wrap;
+            .tabSet{
+                flex: 0 0 100%;
+                .tabContent{
+                    .data_area{
+                        display: block;
+                        margin-left: 0;
+                        margin-top: 2em;
+                        &:before{
+                            content: '';
+                            width: 20px;
+                            height: 20px;
+                            background: #fff;
+                            display: block;
+                            transform: rotate(45deg);
+                            position: absolute;
+                            left: calc(50% - 10px);
+                            top: -10px;
+                        }
+                    }
+                }
+            }
+            .data_area{
+                display: none;
+                // flex: 0 0 100%;
+                // margin-left: 0;
+                // margin-top: 2em;
+                // &:before{
+                //     content: '';
+                //     width: 20px;
+                //     height: 20px;
+                //     background: #fff;
+                //     display: block;
+                //     transform: rotate(45deg);
+                //     position: absolute;
+                //     left: calc(50% - 10px);
+                //     top: -10px;
+                // }
+            }
+        }
+    }
+}
+
+// 廣告輪播
+.banner{
+    .container{
+        @include gutter(100px);
+        padding-top: 9em;
+        padding-bottom: 3em;
+        background: url(../images/bg-banner.png) left 50% top 0 no-repeat;
+    }
+    .adSlider {
+        margin-bottom: 20px;
+        background: rgba(0,0,0,.65);
+        padding: 1.5em 3em;
+        @include screen('mobile') {
+            @include gutter();
+        }
+        .slick-prev {
+            background: url(../vendor/slick/icon_arrow_left.png) no-repeat center center;
+            background-size: 100%;
+            left: 8px;
+        }
+        .slick-next {
+            background: url(../vendor/slick/icon_arrow_right.png) no-repeat center center;
+            background-size: 100%;
+            right: 8px;
+        }
+        .img-container {
+            width: 165px;
+            height: 55px;
+            margin: 0px 15px;
+            a {
+                display: block;
+                text-align: center;
+                img {
+                    margin: 0 auto;
+                }
+            }
+            &:focus {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: 9;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    box-shadow: 0 0px 0px 3px $primaryColor inset;
+                }
+            }
+        }
+    }
+}
+
+.bg-mp{
+    background: url(../images/bg-mp.jpg) 50% top no-repeat;
+    h2.title{
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        line-height: 80px;
+        margin: 2em 0;
+        color: darken($secondaryColor, 5);
+        span{
+            color: $primaryColor;
         }
     }
 }

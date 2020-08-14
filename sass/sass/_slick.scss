@@ -27,14 +27,15 @@
 // slick._scss
 // 首頁大圖輪播 
 .mpSlider {
-    width: 100%;
+    // width: 100%;
+    // width: 650px;
     padding-bottom: 3em;
     @include gutter(0);
     .img-container {
         @include aspect-ratio(5, 2); //PC版比例
-        @include screen('mobile') {
-            @include aspect-ratio(5, 3); //Mobile版比例
-        }
+        // @include screen('mobile') {
+        //     @include aspect-ratio(5, 3); //Mobile版比例
+        // }
     }
     .slick-prev {
         @include screen('mobile') {

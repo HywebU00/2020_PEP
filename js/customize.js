@@ -122,5 +122,15 @@ $(function() {
         focusOnSelect: true,
         infinite: true
     });
-    
+
+    // fixed_sidebar
+    $('.fixed_sidebar .switch').on('click', function(e){
+        if ($('.fixed_sidebar').hasClass('close')) {
+            $(this).parents('.fixed_sidebar').removeClass('close');
+            $(this).html("收合");
+        } else {
+            $(this).parents('.fixed_sidebar').addClass('close');
+            $(this).html("展開");
+        }
+    });
 });

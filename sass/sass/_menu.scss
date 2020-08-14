@@ -2,11 +2,18 @@
     @include box-sizing;
     margin: 0 auto;
     min-height: 2.5em;
+    margin-left: 90px;
     position: relative;
     z-index: 99;
     // 預設選單 ul
     clear: both;
-    @include screen('mobile') {
+
+    transition: all .6s ease;
+    @media screen and (max-width: 1100px) {
+        margin-left: 0px;
+    }
+
+    @include screen('tablet') {
         display:none;
     }
     >ul {
@@ -17,11 +24,12 @@
         >li {
             display: inline-block;
             vertical-align: top;
-            min-width: 10em;
+            // min-width: 10em;
             >a {
                 display: block;
-                padding: 0 1em;
-                min-height: 2.5em;
+                padding: 0 .75em;
+                margin: .75em 0;
+                // min-height: 2.5em;
                 font-weight: bold;
                 line-height: 2.5em;
                 color: $color-word;
@@ -136,6 +144,7 @@
     @include box-sizing;
     .menu{
         display:block;
+        margin-left: 0;
     }
     >.menu_overlay {
         background: RGBA(0, 0, 0, .5);
@@ -228,6 +237,7 @@
                 &.hasChild {
                     >a {
                         padding: .5em 1em;
+                        margin: 0 0;
                         color: #222;
                         background: #FFF;
                         padding-right: 36px;

@@ -12,7 +12,8 @@
     position: relative;
     &>.tabItem {
         &.active>a {
-            background-color: $primaryColor;
+            background-color: #004f5d;
+            border-bottom: solid 3px #004f5d;
             color: #FFF;
         }
         float: left;
@@ -22,31 +23,150 @@
         line-height: 1;
         @include screen('mobile') {
             float: none;
+            margin-top: 1em;
+            &:first-child{ margin-top: 0; }
             &>a {
                 width: 100% !important;
                 border-bottom: 1px solid #888;
             }
-            &.active>a {
-                border-color: #bbb;
-            }
+            &.active>a {}
         }
         &>a {
             display: block;
             padding: 16px 0 14px;
+            margin: 0 2px;
             text-align: center;
-            background-color: #aaa;
-            color: #fff;
+            font-size: 1.125em;
+            // background-color: #aaa;
+            color: $secondaryColor;
+            border-bottom: solid 3px $secondaryColor;
             font-weight: bold;
             text-decoration: none;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
             @include text-overflow;
             @include box-sizing;
             &:hover {
                 background: $primaryColor;
+                color: #fff;
             }
         }
     }
 }
 //多組 可設定差異
+.type-1{
+    .tabContent{
+        padding: 30px 10px;
+    }
+    .flex{
+        .thumbnail{
+            flex: 0 0 300px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+            transition: all .6s ease;
+
+            .img-container{
+                margin-bottom: 0;
+
+                position: relative;  // for time、h3
+
+                time{
+                    position: absolute;
+                    top: 10%;
+                    display: block;
+                    width: 110px;
+                    text-align: center;
+                    background: rgba(37,37,37,.7);
+                    color: #fff;
+                    padding: .45em 0;
+                }
+                h3{
+                    position: absolute;
+                    bottom: 0;
+                    padding: .5em 1em;
+                    margin: 0;
+                    color: #fff;
+                    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.5+100 */
+                    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
+                }
+            }
+
+            p{
+                margin: 0;
+                padding: 1em;
+            }
+
+            &:hover, &:focus{
+                box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+            }
+        }
+        .list{
+            flex: 1 1 auto;
+            flex-basis: calc(100% - 300px);
+            padding: 0 2em;
+
+            li{
+                @extend %flex;
+                border-bottom:  solid 1px #98b491;
+
+                position: relative;
+
+                &:after{
+                    content: '';
+                    display: block;
+                    width: 65px;
+                    height: 3px;
+                    background: #98b491;
+                    position: absolute;
+                    bottom: -1px;
+                }
+            }
+
+            time{
+                margin: 0 1em 0 0;
+                align-self: center;
+                color: $secondaryColor;
+                font-weight: bold;
+            }
+            a{
+                display: inline-block;
+                width: calc(100% - 80px);
+            }
+        }
+    }
+
+    @include screen('mobile') {
+        .tabContent{}
+        .flex{
+            flex-flow: row wrap;
+            .thumbnail{
+                flex: 0 0 100%;
+            }
+            .list{
+                flex: 1 1 100%;
+                padding: 0;
+
+                li{
+                    flex-flow: row wrap;
+                    white-space: normal;
+                    padding: 1em 0;
+                    time{
+                        flex: 0 0 100%;
+                    }
+                    a{
+                        flex: 0 0 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .example-2 {
     .tabItem>a:hover {
         background: $secondaryColor;
@@ -69,13 +189,16 @@
     display: none;
     @include screen('mobile') {
         position: static;
+        background: #fff;
+        box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.25);
     }
     ul {
         @include li-reset;
     }
     li {
-        margin: 0 0 1.3em 0;
-        padding: 0;
+        // margin: 0 0 1.3em 0;
+        // padding: 0;
+        padding: .6em 0;
         line-height: 1.6;
         border-bottom: 1px #CCC dashed;
         @include screen('mobile') {

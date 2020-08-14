@@ -19,6 +19,7 @@ body {
 .wrapper {
     width: 100%;
     margin: 0px auto;
+    background: #6a852c;
     @include screen('mobile') {
         background: #FFF;
         overflow: hidden;
@@ -30,14 +31,15 @@ body {
     padding: 0;
     margin: 0 auto;
     max-width: $container-max; //請看_variable.scss
+    // background: #fff;
 }
 .main {
     position: relative;
     margin: 0 auto;
     padding: 0;
     // 可先設定一個中央區塊最大寬，限制accesskey對齊
-    @include screen('mobile') {
-        padding-top: 55px;
+    @include screen('tablet') {
+        padding-top: 60px;
     }
     h2 {
         line-height: 1.25em;

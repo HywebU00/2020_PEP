@@ -24,11 +24,11 @@ $(function() {
     /*-----------------------------------*/
     //////////// nav如果有兩個選單///////////
     /*-----------------------------------*/
-    var _navLength = $('.navigation ul').length;
-    if (_navLength > 1) {
-        $('.navigation ul:nth-child(1)').addClass('left_nav');
-    }
-    $('.navigation').has('.language').addClass('have_language');
+    // var _navLength = $('.navigation ul').length;
+    // if (_navLength > 1) {
+    //     $('.navigation ul:nth-child(1)').addClass('left_nav');
+    // }
+    // $('.navigation').has('.language').addClass('have_language');
     /*-----------------------------------*/
     /////// header選單 tab及 fix設定////////
     /*-----------------------------------*/
@@ -108,7 +108,7 @@ $(function() {
     // 切換PC/Mobile 選單
     function mobileMenu() {
         ww = _window.outerWidth();
-        if (ww < wwSmall) {
+        if (ww < wwMedium) {
             /*-----------------------------------*/
             /////////////// 手機版設定 /////////////
             /*-----------------------------------*/
@@ -159,8 +159,8 @@ $(function() {
             /*-----------------------------------*/
             hideSidebar();
             _body.removeClass('noscroll');
-            _nav.prependTo('.header .container');
-            _search.appendTo('.header .container');
+            // _nav.prependTo('.header .container');
+            // _search.appendTo('.header .container');
             _menu.appendTo('.header .container');
             _search.removeClass('m_search');
             _search.show();
@@ -224,7 +224,7 @@ $(function() {
         menuH = Math.floor(_menu.outerHeight(true));
         $(window).bind("load scroll resize", function(e) {
             ww = _window.outerWidth();
-            if (ww >= wwSmall && $(this).scrollTop() > stickyMenuTop) {
+            if (ww >= wwMedium && $(this).scrollTop() > stickyMenuTop) {
                 $('.header').addClass('fixed');
                 $('.header').css('margin-top', menuH - hh);
                 $('.main').css('margin-top', hh);
@@ -487,12 +487,12 @@ $(function() {
     /*-----------------------------*/
     /////form表單 placeholder隱藏/////
     /*-----------------------------*/
-    $('input,textarea').focus(function() {
-        $(this).removeAttr('placeholder');
-    });
-    $('input[type="checkbox"]').off().click(function(e) {
-        $(this).blur();
-    });
+    // $('input,textarea').focus(function() {
+    //     $(this).removeAttr('placeholder');
+    // });
+    // $('input[type="checkbox"]').off().click(function(e) {
+    //     $(this).blur();
+    // });
     /*------------------------------------*/
     /////form表單 單個檔案上傳+多個檔案上傳/////
     /*------------------------------------*/
