@@ -27,12 +27,13 @@
             // min-width: 10em;
             >a {
                 display: block;
-                padding: 0 .75em;
+                padding: 0 .9em 0 0;
                 margin: .75em 0;
                 // min-height: 2.5em;
+                font-size: 1.125em;
                 font-weight: bold;
                 line-height: 2.5em;
-                color: $color-word;
+                color: #142740;
             }
             &.hasChild {
                 >a {

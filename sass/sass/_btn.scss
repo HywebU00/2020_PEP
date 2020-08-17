@@ -145,7 +145,7 @@ $btn-radius: .2em;
 // 主要按鈕
 .btn-primary{
     @extend %btn;
-    @include btn_setting2($lightColor, #FFF);
+    @include btn_setting2(#f66339, #FFF);
 }
 // 次要按鈕
 .btn-secondary{
