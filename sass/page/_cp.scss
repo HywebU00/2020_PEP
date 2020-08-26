@@ -1,6 +1,6 @@
 @charset "utf-8";
 // 文章標題
-h1.title, h2.title {
+h1.title{
     line-height: 1.25em;
     margin: .4em 0;
 }
@@ -34,12 +34,12 @@ h1.title, h2.title {
             margin-bottom: .5em;
         }
     }
-    &.small_size {
-        font-size: .938em;
-    }
-    &.large_size {
-        font-size: 1.125em;
-    }
+    // &.small_size {
+    //     font-size: .938em;
+    // }
+    // &.large_size {
+    //     font-size: 1.125em;
+    // }
     table {
         background: #FFF;
     }
@@ -124,7 +124,7 @@ div.tag {
         counter-reset: counter;
         list-style-type: none;
         padding: 0;
-        margin-left: 1em;
+        margin: 1.5em 0;
         @media screen and (max-width: 767px) {
             margin-left: 0;
         }
@@ -137,6 +137,10 @@ div.tag {
         clear: both;
         overflow: hidden;
         padding-bottom: .5em;
+
+        &:last-child{
+            border-bottom: transparent;
+        }
         span {
             @include screen('mobile') {
                 display: block;
@@ -392,23 +396,21 @@ div.tag {
     }
 }
 .publish_info {
-    font-size: 0.875em;
-    line-height: 1.5em;
     list-style: none;
-    margin: 0 0 .7em 0;
-    border-left: solid 5px $primaryColor;
-    padding: 0.8em 1.5em 0.8em;
+    padding: 1.25em 2em;
     background: #F2F2F2;
-    @extend %clearfix;
-     @include box-sizing;
-    @include screen('mobile') {
-        font-size: 0.938em;
-    }
+    border-radius: 4px;
+
+    @extend %flex;
+
+    @include screen('mobile') {}
     li {
-        width: 32%;
-        margin-bottom: .5em;
-        display: inline-block;
-        vertical-align: top;
+        font-size: 90%;
+        line-height: 1.6;
+        span{
+            font-size: 120%;
+        }
+
         @include screen('tablet') {
             width: 48%;
             margin-bottom: .2em;
@@ -418,5 +420,22 @@ div.tag {
             width: 100%;
             display: block;
         }
+    }
+}
+
+// RWD yuotube
+.youtube-RWD{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:hidden;
+    max-width: 100%;
+    margin: 1em 0;
+    iframe, object, embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }

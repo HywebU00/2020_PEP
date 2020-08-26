@@ -24,6 +24,7 @@
         @include screen('mobile') {
             float: none;
             margin-top: 1em;
+            font-size: 1.25em;
             &:first-child{ margin-top: 0; }
             &>a {
                 width: 100% !important;
@@ -150,11 +151,14 @@
     }
 
     @include screen('mobile') {
-        .tabContent{}
+        .tabContent{
+            padding: 30px 30px;
+        }
         .flex{
             flex-flow: row wrap;
             .thumbnail{
                 flex: 0 0 100%;
+                max-width: 100%;
             }
             .list{
                 flex: 1 1 100%;

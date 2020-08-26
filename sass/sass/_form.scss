@@ -8,7 +8,7 @@ $form_title_width :150px;       // 表單title寬度
     padding: .5em;
     background: #fff;
     vertical-align: middle;
-    margin-bottom: .3em;
+    // margin-bottom: .3em;
     @include box-sizing;
     @include border-radius($f_radius);
     @include transition(border, .2s, ease-out);
@@ -20,12 +20,12 @@ select::-ms-expand {
 
 .form_grid {
     font-size: .938em;
-    margin: .5em;
-    border-top: 1px solid #DDD;
+    // margin: .5em;
+    // border-top: 1px solid #DDD;
     .form_grp {
-        border-bottom: 1px dashed #DDD;
+        border-bottom: 1px dashed #ececec;
         overflow: hidden;
-        padding: .2em 0;
+        padding: .5em 0;
         // 閱讀條文
         &.agree {
             border-bottom: none;
@@ -39,8 +39,10 @@ select::-ms-expand {
     .form_title {
         float: left;
         width: $form_title_width;
-        @include gutter();
-        padding-top: 5px;
+        font-size: 1.125em;
+        // @include gutter();
+        padding-left: 15px;
+        // padding-top: 5px;
         @include screen('mobile') {
             width: 100%;
         }
@@ -48,12 +50,38 @@ select::-ms-expand {
     .form_content {
         float: left;
         padding-top: 3px;
+        padding-bottom: 3px;
         width: calc(100% - #{$form_title_width});
         @include gutter();
         overflow: hidden;
+
+        &.flex{
+            justify-content: flex-start;
+            input{ width: 30%; }
+            img.captcha{ margin: 0 .5em; }
+        }
+
         @include screen('mobile') {
             width: 100%;
         }
+
+        &.form_inline {
+            input[type="text"], input[type="tel"], input[type="email"],
+            , select {
+                width: auto;
+                min-width: 100%;
+                max-width: 100% !important;
+                display: inline-block;
+                @include screen('mobile') {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            input + .checkbox{
+                margin-top: 1em;
+            }
+        }
+
         // 第二層的設定
         .form_grp {
             min-height: 2.5em;
@@ -120,22 +148,134 @@ select::-ms-expand {
             }
         }
         // 地址專屬
-        .address {
+        &.address {
             select {
                 min-width: 100px;
                 option {
                     text-align: center;
                 }
+
                 @include screen('xs_mobile') {
                     width: 100px;
                     display: inline-block !important;
                 }
             }
+
+            select+select+input[type="text"]{ width: calc(100% - 211px) !important; }
+
             input[type="text"] {
-                width: calc(100% - 211px) !important;
+                width: 100% !important;
                 @include screen('mobile') {
                     display: block !important;
                     width: 100% !important;
+                }
+            }
+
+            @include screen('mobile') {
+                select+select+input[type="text"]{ width: 100%  !important; }
+            }
+        }
+        // 綜合表單-欄位數
+        &.mix-1-col{
+            width: 100%;
+            .form_grp{
+                width: calc( 100% / 1 - 6px); 
+                input[type="text"]{
+                    width: calc( 100% - 2em);
+                    +span{ margin-left: .4em; }
+                }
+            }
+        }
+        &.mix-2-col{
+            input[type="text"], input[type="tel"], input[type="email"],
+            , select {
+                min-width: calc( 100% / 2 - 3px);
+            }
+            .form_grp{
+                width: calc( 100% / 2 - 3px); 
+                input[type="text"]{
+                    width: calc( 100% - 2em);
+                    +span{ margin-left: .4em; }
+                }
+            }
+            input,
+            textarea,
+            select{
+                margin: 2px 0;
+                &:last-child, &:nth-last-child(2){ margin: 2px 0 0; }
+                &:first-child, &:nth-child(2){ margin: 0 0 2px; }
+            }
+        }
+        &.mix-3-col{
+            // width: 100%;
+
+            input[type="text"], input[type="tel"], input[type="email"],
+            , select {
+                min-width: calc( 100% / 3 - 4px);
+                max-width: calc( 100% / 3 - 4px);
+            }
+            .form_grp{
+                width: calc( 100% / 3 - 4px);
+                display: inline-block;
+                text-align: left;
+                
+                &:last-child{
+                    // border-bottom: 1px dashed #DDD !important;
+                    margin-bottom: .2em !important;
+                }
+
+                label{
+                    display: block !important;
+                    // text-align: left;
+                }
+                input[type="text"]{
+                    width: calc( 100% - 2em);
+                    +span{ margin-left: .4em; }
+                }
+            }
+            input,
+            textarea,
+            select{
+                margin: 2px 0;
+                &:last-child, &:nth-last-child(2), &:nth-last-child(3){ margin: 2px 0 0; }
+                &:first-child, &:nth-child(2), &:nth-child(3){ margin: 0 0 2px; }
+            }
+        }
+        &.mix-4-col{
+            width: 100%;
+            .form_grp{
+                width: calc( 100% / 4 - 6px); 
+                display: inline-block;
+                label{
+                    display: block !important;
+                    text-align: left;
+                    font-weight: 500;
+                }
+                input[type="text"]{
+                    width: calc( 100% - 2em);
+                    +span{ margin-left: .4em; }
+                }
+            }
+            input,
+            textarea,
+            select{
+                margin: 2px 0;
+                &:last-child, &:nth-last-child(2), &:nth-last-child(3), &:nth-last-child(4){ margin: 2px 0 0; }
+                &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4){ margin: 0 0 2px; }
+            }
+        }
+        &.mix-float-col{
+            width: 100%;
+            .form_grp{
+                width: auto; 
+                display: inline-block;
+                // margin-right: 1.25em;
+                margin-right: .4em;
+                >span{ margin-right: .4em; }
+                input[type="text"]{
+                    min-width: auto;
+                    width: 120px;
+                    +span{ margin-left: .4em; margin-right: .4em; }
                 }
             }
         }
@@ -194,6 +334,20 @@ select::-ms-expand {
                 }
             }
         }
+
+        &.tel, &.birthday, &.address{
+            &.form_inline {
+                input[type="text"], select {
+                    width: auto;
+                    min-width: 100px;
+                    display: inline-block;
+                    @include screen('xs_mobile') {
+                        width: 100%;
+                        display: block;
+                    }
+                }
+            }
+        }
     }
 }
 //---------------------------------------------form setting--------//
@@ -203,7 +357,7 @@ form {
     .radio_grp,
     .btn_grp,
     .upload_grp {
-        margin-bottom: .2em;
+        margin: .2em 0;
     }
     .check_grp,
     .radio_grp {
@@ -284,7 +438,7 @@ label,
 legend {
     // white-space: nowrap;
     display: inline-block;
-    margin: 0 0 .5em 0;
+    margin: .6em 0;
     @include screen('xs_mobile') {
         display: block;
     }
@@ -339,6 +493,7 @@ form{
             color: darken($color-gray, 20);
         }
     }
+
     // button,
     // input[type="button"]{
     //     @extend %btn;
@@ -348,6 +503,7 @@ form{
     //     @extend %btn;
     //     @include btn_setting($form-focus, #FFF);
     // }
+
     textarea {
         @include formStyle();
         height: 5em;
@@ -360,12 +516,15 @@ form{
     input[type="reset"]:focus,
     input[type="file"]:focus,
     input[type="tel"]:focus,
+    input[type="email"]:focus,
     input[type="password"]:focus,
     textarea:focus,
     select:focus {
         // border: 1px solid lighten($form-focus, 20);
-        @include box-shadow(0px 0px 0px 2px lighten($form-focus, 20));
+        @include box-shadow( inset 0px -2px 0px 0px lighten($form-focus, 20));
+        
         outline: none;
+        border-bottom: solid 1px lighten($form-focus, 20);
     }
 }
 //
@@ -427,7 +586,7 @@ input[readonly],
 input[disable] {
     background: lighten($color-gray, 15);
     color: darken($color-gray, 10);
-    border-color: darken($color-gray, 10);
+    // border-color: darken($color-gray, 10);
     &~label {
         color: darken($color-gray, 10);
     }
@@ -484,7 +643,8 @@ img.captcha {
         vertical-align: middle;
     }
     ~.btn {
-        margin-top: -1px;
+        // margin-top: -1px;
+        margin: 0;
     }
     ~img {
         display: inline-block;

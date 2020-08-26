@@ -125,10 +125,10 @@
     padding: 1em 0;
     clear: both;
     .cp_slider {
-        @include gutter;
+        // @include gutter;
     }
     .img-container {
-        margin: 0px 15px;
+        margin: 0px 2px;
         @include aspect-ratio(4, 3);
         overflow: hidden;
         img {
@@ -151,7 +151,8 @@
     }
     // dots
     .slick-dots {
-        bottom: -30px !important;
+        bottom: -26px !important;
+        margin-bottom: 0;
         @include screen('mobile') {
             bottom: -40px !important;
             padding: 0;
@@ -164,10 +165,14 @@
     }
     //Arrows
     .slick-prev {
-        left: -1 * $grid-gutter-width/2;
+        // left: -1 * $grid-gutter-width/2;
+        left: $grid-gutter-width/2;
+        top: 50%;
     }
     .slick-next {
-        right: -1 * $grid-gutter-width/2;
+        // right: -1 * $grid-gutter-width/2;
+        right: $grid-gutter-width/2;
+        top: 50%;
     }
     a {
         color: #555;

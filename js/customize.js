@@ -96,7 +96,7 @@ $(function() {
         ease: 'ease',
         lazy: true
     });
-     // cp_photo
+    // cp_photo
     $('.Slider-for').on('init reInit afterChange', function(event, slick, currentSlide) {
         var i = (currentSlide ? currentSlide : 0) + 1;
         $('.controls').html(i + '/' + slick.slideCount);
@@ -132,5 +132,65 @@ $(function() {
             $(this).parents('.fixed_sidebar').addClass('close');
             $(this).html("展開");
         }
+    });
+
+    // 條件查詢
+    $('#Conditional_switch').click(function(){
+        $('#Conditional_query').find('.form_grid').stop(true, false).slideToggle(function(){
+            if ($(this).is(':visible')) {
+                $('#Conditional_switch').attr('value', '收合條件查詢');
+            } else {
+                $('#Conditional_switch').attr('value', '開啟條件查詢');
+            }
+        });
+    });
+
+    // 偵測高度吐出來 accordion
+    $(document).ready(function(){
+        _tabItem_HH = $('.tabItem').height();              //標屜高
+        _tabConten_HH = $('.accordion').height();          //內容高
+        _total_HH = _tabItem_HH + _tabConten_HH + 120;           //總高＝標屜高＋內容高
+        $(".tabItemH").find('span').text(_tabItem_HH);     //前台動態顯示
+        $(".contentH").find('span').text(_tabConten_HH);   //前台動態顯示
+        $('.totalH').find('span').text(_total_HH);         //前台動態顯示
+        $('.tabLink').css('height', _total_HH);            //把總高吐出來
+
+        $('.tabs2 .accordion a.title').click(function(){
+            _tabItem_HH = $('.tabItem').height();
+            _tabConten_HH = $('.accordion').height();
+            _total_HH = _tabItem_HH + _tabConten_HH + 120;
+
+            $(".tabItemH").find('span').text(_tabItem_HH);
+            $(".contentH").find('span').text(_tabConten_HH);
+            $('.totalH').find('span').text(_total_HH);
+
+            $('.tabLink').css('height', _total_HH);
+        })
+    });
+
+    
+    // modal設定
+    $(function() {
+        $('#modal1').hide();                                                                //先隱藏視窗
+        $('.modal').after('<div class="modal_overlay"></div>');                             //新增透明底
+        $('.modal').prepend('<button type="button" class="close">關閉</button>');           //新增關閉按鈕
+        $('.modal_overlay').hide();                                                         //隱藏透明底
+        //按鈕動作
+        $('#openModal').click(function(e) {
+            $('.modal_overlay').fadeIn(100);
+            $('.modal').fadeIn(100);
+            $('body').addClass('noscroll');
+            e.preventDefault();
+        });
+        //關閉function
+        function closeModal(){
+            $('#modal1').hide();
+            $('.modal_overlay').hide();
+            $('body').removeClass('noscroll');
+        }
+        //點選關閉按鈕及透明底都可關閉
+        $('.modal_overlay').click(closeModal);
+        $('.modal .close').click(closeModal);
+
     });
 });

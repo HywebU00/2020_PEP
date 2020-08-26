@@ -27,7 +27,7 @@
  $sitemapLength : 4;
  $sitemapWidth:100%/ $sitemapLength;
  .cascading {
-     border-top: 1px solid #CCC;
+     // border-top: 1px solid #CCC;
      @include gutter;
      @include box-sizing;
      ul {

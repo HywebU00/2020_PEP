@@ -27,6 +27,8 @@ body {
     line-height: 1.45em;
     font-family:$font-family;
     -webkit-text-size-adjust: none;
+
+    p{ color: #444; }
 }
 a {
     @include aSetting();

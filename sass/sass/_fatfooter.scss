@@ -23,10 +23,10 @@
         background: $secondaryColor;
         position: absolute;
         right: calc(50% - 21px);
-        top: -21px;
+        top: -25px;
         z-index: 90;
-        height: 42px;
-        width: 42px;
+        height: 50px;
+        width: 50px;
         font-size: 0; 
         @include border-radius(50%);
         &:before {
@@ -38,6 +38,7 @@
             border-left: none;
             border-bottom: none;
             transform: rotate(-45deg);
+            transform-origin:50% 50%;
             left: calc(50% - 6px);
             top: calc(50% - 3px);
             // margin-left: -6px;
@@ -54,10 +55,12 @@
             outline: none;
             border: none;
             cursor: pointer;
+
         }
         &.close {
             &:before {
                 transform: rotate(135deg) !important;
+                transform-origin: 36% 87%;
                 top: 5px;
             }
         }
@@ -69,14 +72,15 @@
         padding: 3em 0 0 2em;
         @include box-sizing;
         @include screen('mobile') {
-            padding: 1em 0;
+            padding: 1.5em 0 1em;
         }
         ul {
             @include li-reset;
             @include screen('mobile') {
                 width: 100%;
                 display: block;
-                margin: 0px auto;
+                margin-top: 0;
+                margin-bottom: 1em;
             }
             li {
                 display: inline-block;
@@ -86,7 +90,7 @@
                 @include box-sizing;
                 @include screen('mobile') {
                     display: block;
-                    margin:0 0 .4em
+                    margin: 0;
                 }
                 a {
                     line-height: 1.5;

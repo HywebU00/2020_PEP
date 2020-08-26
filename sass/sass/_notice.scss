@@ -45,7 +45,8 @@
 }
 *[class*="notice_info"] {
     color: #00529B;
-    background-color: #BDE5F8;
+    // background-color: #BDE5F8;
+    background-color: #fff;
     &:before {
         background: url(../images/basic/icon_info.svg) no-repeat center center;
         background-size: 15px;
@@ -53,7 +54,8 @@
 }
 *[class*="notice_success"] {
     color: #4F8A10;
-    background-color: #DFF2BF;
+    // background-color: #DFF2BF;
+    background-color: #fff;
     &:before {
         background: url(../images/basic/icon_success.svg) no-repeat center center;
         background-size: 15px;
@@ -61,7 +63,8 @@
 }
 *[class*="notice_warning"] {
     color: #CE5605;
-    background-color: #FEEFB3;
+    // background-color: #FEEFB3;
+    background-color: #fff;
     &:before {
         background: url(../images/basic/icon_warning.svg) no-repeat center center;
         background-size: 15px;
@@ -69,7 +72,8 @@
 }
 *[class*="notice_error"] {
     color: #D8000C;
-    background-color: #FFD2D2;
+    // background-color: #FFD2D2;
+    background-color: #fff;
     &:before {
         background: url(../images/basic/icon_error.svg) no-repeat center center;
         background-size: 15px;

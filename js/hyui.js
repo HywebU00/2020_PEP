@@ -191,7 +191,7 @@ $(function() {
     _window.bind("load resize", function(event) {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            search_mode = true;
+            // search_mode = true;
             mobileMenu();
         }, 50);
     });
@@ -539,19 +539,19 @@ $(function() {
     $('.font_size').find('.medium').addClass('active');
     $('.font_size').find('.small').click(function(e) {
         $(this).parent('li').siblings('li').find('a').removeClass('active');
-        $('.cp').removeClass('large_size').addClass('small_size');
+        $(this).parents('.flex').siblings('section').removeClass('large_size').addClass('small_size');
         $(this).addClass('active');
         e.preventDefault();
     });
     $('.font_size').find('.medium').click(function(e) {
         $(this).parent('li').siblings('li').find('a').removeClass('active');
-        $('.cp').removeClass('large_size small_size');
+        $(this).parents('.flex').siblings('section').removeClass('large_size small_size');
         $(this).addClass('active');
         e.preventDefault();
     });
     $('.font_size').find('.large').click(function(e) {
         $(this).parent('li').siblings('li').find('a').removeClass('active');
-        $('.cp').removeClass('small_size').addClass('large_size');
+        $(this).parents('.flex').siblings('section').removeClass('small_size').addClass('large_size');
         $(this).addClass('active');
         e.preventDefault();
     });

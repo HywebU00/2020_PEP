@@ -1,14 +1,15 @@
+$modal_width: 50%;
+
 .modal {
     position: fixed;
     display: none;
-    width: 400px;
-    height: 300px;
+    width: $modal_width;
+    // height: 300px;
     background: #FFF;
     z-index: 99999999;
     top: 5%;
-    left: 50%;
-    margin-left: -200px;
-    padding: 1em 1em 1em;
+    left: calc(100% / 2 - (#{$modal_width} / 2) );
+    padding: 1.5em 2em;
     @include box-sizing;
     border-radius:8px;
     box-shadow:1px 1px 15px RGBA(0, 0, 0, .5);
@@ -16,22 +17,33 @@
     h2 {
         border-bottom: 1px solid $primaryColor;
         padding-bottom: .5em;
+        text-align: center;
     }
     .close {
         position: absolute;
         top: 5px;
         right: 5px;
-        width: 30px !important;
+        width: 40px !important;
+        height: 40px;
+        border-radius: 50%;
         min-width: auto;
-        height: 30px;
         font-size: 0em;
         border: none;
         display: block;
         padding: 0;
-        background: url(../images/basic/icon_close.svg) no-repeat center center;
+        background: url(../images/basic/icon_close.svg) no-repeat center center, #eee;
         &:hover, &:focus {
             cursor: pointer;
         }
+    }
+
+    .notice_warning{
+        margin-top: 1em
+    }
+
+    @include screen('mobile') {
+        width: 90%;
+        left: calc(100% / 2 - (90% / 2) );
     }
 }
 @keyframes scaleUp {

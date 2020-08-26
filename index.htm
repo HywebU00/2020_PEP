@@ -12,63 +12,71 @@
     <![endif]-->
     <!-- hyUI -->
     <link rel="stylesheet" href="css/hyui.css">
+    <!-- favicon -->
+    <link href="images/favicon.png" rel="icon" type="image/x-icon">
 <style>
-.demo_wrap {
-    max-width: 1000px;
-    margin: 0em auto 1em;
-    padding: 15px 15px 3em;
-    clear: both;
-    background: #FFF
-}
-.demo_wrap h1 {
-    display: block;
-    margin: 0px auto;
-    max-width: 300px;
-    float: left;
-    margin-right: 1em
-}
-@media screen and (max-width:545px) {
-    .demo_wrap h1 {
-        max-width: 100%;
-        float: none;
-        text-align: center
+    .demo_wrap {
+        max-width: 1000px;
+        margin: 0em auto 1em;
+        padding: 15px 15px 3em;
+        clear: both;
+        background: #FFF
     }
-}
-.demo_wrap h1 img {
-    width: 300px
-}
-.num {
-    width: 12%
-}
-body {
-    counter-reset: num
-}
-table {
-    margin-bottom: 1em
-}
-table caption {
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.25em;
-    padding: .5em 0;
-    color: #ff5050
-}
-tbody tr td:first-child:before {
-    counter-increment: num;
-    display: block;
-    text-align: center;
-    content: counters(num, ".") " "
-}
-tbody tr td:nth-child(2) {
-    width: 35%
-}
-.btn_grp{
-    text-align: right;
-}
-@media screen and (max-width:545px) {
-   .btn_grp{
-    text-align: center;
-} 
+    .demo_wrap h1 {
+        display: block;
+        margin: 0px auto;
+        max-width: 300px;
+        float: left;
+        margin-right: 1em 
+    }
+    b{
+        background: deeppink;
+        color: #fff;
+        padding: .25em .5em;
+    }
+    @media screen and (max-width:545px) {
+        .demo_wrap h1 {
+            max-width: 100%;
+            float: none;
+            text-align: center
+        }
+    }
+    .demo_wrap h1 img {
+        width: 300px
+    }
+    .num {
+        width: 12%
+    }
+    body {
+        counter-reset: num
+    }
+    table {
+        margin-bottom: 1em
+    }
+    table caption {
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.25em;
+        padding: .5em 0;
+        color: #ff5050
+    }
+    tbody tr td:first-child:before {
+        counter-increment: num;
+        display: block;
+        text-align: center;
+        content: counters(num, ".") " "
+    }
+    tbody tr td:nth-child(2) {
+        width: 35%
+    }
+    tbody tr td span{ color: deeppink; }
+    .btn_grp{
+        text-align: right;
+    }
+    @media screen and (max-width:545px) {
+       .btn_grp{
+        text-align: center;
+    } 
 }
 </style>
 </head>
@@ -149,6 +157,439 @@ tbody tr td:nth-child(2) {
                 </tbody>
             </table>
             <!-- 專案客製化頁面 -->
+            <h3>帳號相關版型</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td></td>
+                        <td>註冊與登入</td>
+                        <td><a href="SP1.htm"></a></td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                        <td>忘記密碼(彈跳視窗)</td>
+                        <td><a href="SP1.htm"></a></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+
+            <h3>意見信箱</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td></td>
+                        <td>意見信箱</td>
+                        <td><a href="SP3.htm"></a></td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                        <td>成功送出頁面</td>
+                        <td><a href="SP4.htm"></a></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+
+            <h3>防疫業務</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td></td>
+                        <td>防疫業務</td>
+                        <td><a href="NP.htm"></a></td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                        <td>專案調查<span>（原LP1，樣式同QP7）</span></td>
+                        <td><a href="QP7.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>調查對象簡介</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                        <td>診斷服務-植物醫生簡介</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>紅火蟻通報-紅火蟻簡介</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                        <td>全民通報-防疫業務<span>（原LP2，樣式同QP7）</span></td>
+                        <td><a href="QP7.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>通報對象簡介</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                        <td>疫情燈號</td>
+                        <td>google 撈資料</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>全民通報</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td></td>
+                        <td>全民通報</td>
+                        <td><a href="SP6.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>選擇通報對象</td>
+                        <td><a href="SP7.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>填寫通報表</td>
+                        <td><a href="SP8.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>個資聲明內容</td>
+                        <td>同SP8</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>完成通報</td>
+                        <td><a href="SP9.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>全民通報-案件查詢</td>
+                        <td><a href="QP1.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>通報結果</td>
+                        <td><a href="SP10.htm"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>紅火蟻通報</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>紅火蟻通報</td>
+                        <td>同SP6</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>確認對象</td>
+                        <td>同SP7</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>非通報對象</td>
+                        <td>同SP9</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>填寫通報表(紅火蟻)</td>
+                        <td>同SP8</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>通報完成(紅火蟻)</td>
+                        <td>同SP9</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>紅火蟻通報-案件查詢</td>
+                        <td><a href="QP1.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>通報結果(紅火蟻)</td>
+                        <td>同SP10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>診斷服務</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>診斷服務</td>
+                        <td>同SP6</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>填寫診斷表</td>
+                        <td>同SP8</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>完成申請</td>
+                        <td>同SP9</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>診斷服務-案件查詢</td>
+                        <td><a href="QP1.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>診斷結果</td>
+                        <td>同SP10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>最新公告</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>最新公告</td>
+                        <td><a href="NP.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>公告列表<span>（原LP2，樣式同QP4）</span></td>
+                        <td>同QP4</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>公告查詢</td>
+                        <td>同QP4</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>公告內容</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>常見問題</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>常見問題</td>
+                        <td>同QP5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>常見問題查詢</td>
+                        <td><a href="QP5.htm"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>聯絡方式</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>聯絡方式<span>（原LP3，樣式同QP6）</span></td>
+                        <td><a href="QP6.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>聯絡方式查詢</td>
+                        <td><a href="QP6.htm"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>防治文宣</h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>防治文宣</td>
+                        <td><a href="NP.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>數位影音列表<span>（原LP4，樣式同QP7）</span></td>
+                        <td><a href="QP7.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>數位影音查詢</td>
+                        <td>同QP7</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>數位影音內容</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>數位文宣列表<span>（原LP5，樣式同QP8）</span></td>
+                        <td><a href="QP8.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>數位文宣查詢</td>
+                        <td><a href="QP8.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>數位文宣內容</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>其他SP</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>網站地圖</td>
+                        <td><a href="sitemap.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>RSS訂閱</td>
+                        <td><a href="RSS.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Telegram訂閱</td>
+                        <td><a href="SP11.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>相關連結</td>
+                        <td><a href="QP9.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>平台簡介</td>
+                        <td><a href="CP1.htm"></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>另開圖片視窗</td>
+                        <td>同CP1燈箱照片</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>404</td>
+                        <td><a href="404.htm"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <h3></h3>      
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num">編號</th>
+                        <th>頁面名稱</th>
+                        <th>檔案名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><a href=""></a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><a href=""></a></td>
+                    </tr>
+                </tbody>
+            </table> -->
+
             <!-- <table>
                 <thead>
                     <tr>

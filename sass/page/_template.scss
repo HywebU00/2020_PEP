@@ -48,11 +48,349 @@ body {
 ////////////////////////////////////////////////////////////
 // 為了與首頁區隔，請在內頁加上innerpage ClassName
 .innerpage {
-    padding-top: 2em;
     @include screen('mobile') {
         padding-top: 5em;
     }
     >.container {
-        @include gutter(); //gutter 代表左右要留白
+        padding-top: 1em;
+        padding-bottom: 3em;
+        background: #fff;
+        @include gutter(100px); //gutter 代表左右要留白
+
+        >.flex{
+            flex-flow: row wrap;
+            align-items: center;
+            .breadcrumb,
+            h2.title,
+            .function_panel{
+                flex-basis: 50%;
+            }
+
+            .breadcrumb{}
+            h2.title{
+                color: darken($primaryColor, 5);
+                span{
+                    // border: solid 1px $primaryColor;
+                    box-shadow: inset 4px 0px 0px 0px $primaryColor;
+                    padding: 0 1em;
+                }
+            }
+            .function_panel{}
+        }
+
+        // .breadcrumb{
+        //     +.flex{
+        //         align-items: center;
+        //     }
+        // }
+
+        @include screen('mobile') {
+            @include gutter(2em);
+        }
     }
 }
+
+// 條件查詢
+#Conditional_switch{}
+#Conditional_query{
+    form{
+        margin: .25em 0 2em;
+        padding: 1.5em 2em;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0px 0px 12px 0px rgba(210, 210, 210,0.75);
+
+        &.form_grid{
+            border-top: 0;
+            display: none;
+        }
+    }
+}
+
+// 收合選單（Accordion）
+.Show_box{
+    .accordion{
+        >ul{ @include li-reset; }
+        ul{
+            li{
+                // margin: 10px 0;
+                position: relative;
+                border-bottom: 0;
+
+                .num{
+                    width: 2em;
+                    height: 2em;
+                    text-align: center;
+                    position: absolute;
+                    top: 12px;
+                    left: 16px;
+                    color: #fff;
+                    background: #555;
+                    border-radius: 50%;
+                    padding-top: 5px;
+                    // &:after{
+                    //     content:'';
+                    // }
+                }
+                .title{
+                    display: block;
+                    // background: #627080;
+                    color: #555;
+                    // padding: .5em 1em .5em 3em;
+                    padding: 1.125em 1.25em 1.125em 4em;
+                    border-radius: 4px 4px 0 0;
+                    border-bottom: 1px solid #ddd;
+                    font-weight: bold;
+
+                    &.active{
+                        color: #fff;
+                        font-weight: normal;
+                        background: $secondaryColor;
+                        border-bottom-left-radius: 0;
+                        border-bottom-right-radius: 0;
+
+                        .num{
+                            color: $secondaryColor;
+                            background: rgba(255,255,255,.75);
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .accordion-content{
+                    padding: 1em 2em;
+                    background: #fff;
+                    border: solid 1px $secondaryColor;
+
+                    p{ margin-bottom: .75em; }
+                    ol, ul{ margin: .75em 0; }
+                    li{ margin: .3em 0; }
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// RSS
+.rss{
+    ul.links{
+        a{
+            &:after{
+                content: '';
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                background: url(../images/basic/icon_rss.png) 50% 50% no-repeat;
+                background-size: contain;
+                vertical-align: sub;
+                margin-left: 4px;
+            }
+        }
+    }
+}
+
+// dl、dt、dd
+dl{
+    dt{
+        color: #000;
+        background: #d0d0d0;
+        display: inline-block;
+        padding: 0 1em;
+        border-radius: 4px;
+    }
+    dd{
+        padding: 1em 0;
+    }
+}
+
+// 步驟
+.steps{
+    padding: 1em 0;
+    ul{
+        @include li-reset;
+        display: flex;
+        flex-flow: row nowrap;
+        overflow: hidden;   // 遮蔽step凸出來的線
+        li{
+            flex: 1 1 0;
+            flex-basis: calc(100% / 3);
+            text-align: center;
+            p{
+                color: #666;
+                margin-top: .5em;
+                font-size: 1.125em;
+                b{
+                    color: #555;
+                    font-size: small;
+                }
+            }
+            span{
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto;
+                background: #f3f3f3;
+                box-shadow: inset 0px 0px 0px 3px #ddd;
+                width: 56px;
+                height: 56px;
+                line-height: 56px;
+                font-size: 1.5em;
+                color: #666;
+
+                position: relative;
+
+                &:after{
+                    content: "";
+                    display: block;
+                    width: 700%;    
+                    height: .1em;
+                    background: #ddd;
+                    position: absolute;
+                    left: 56px;
+                    top: 50%;
+                }
+            }
+            &.Pass span{
+                // background: url(../images/icon/icon_check_white.svg) 50% 50% no-repeat, $primaryColor;
+                // background-size: 26px 26px;
+                box-shadow: inset 0px 0px 0px 3px $primaryColor;
+                color: darken($primaryColor, 10);
+                &:after{
+                    background: lighten($primaryColor,20);
+                }
+            }
+            &.Now span{
+                // background: url(../images/icon/icon_pen.svg) 50% 50% no-repeat, #f3f3f3;
+                // background-size: 36px 36px;
+                background: $primaryColor;
+                color: #fff;
+                box-shadow: inset 0px 0px 0px 3px $primaryColor;
+                +p{
+                    color: darken($primaryColor, 5);
+                    font-weight: bold;
+                }
+            }
+
+            &:last-child{
+                span{
+                    &:after{ background: #fff; width: 200%; }
+                }
+            }
+        }
+    }
+}
+
+// 
+.result_info{
+    background: #f3f3f3;
+    padding: 1em 2em;
+    b{ color:#ad0404; }
+}
+
+.img_map{
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    background: #f3f3f3;
+}
+
+// 成功送出、反饋結果
+.Successfully_sent{
+    background: url(../images/bg-successfully_sent.png) 50% 50% no-repeat;
+    height: 300px;
+    padding-top: 150px;
+    text-align: center;
+    span{
+        font-size: 1.25em;
+        font-weight: bold;
+        background: rgba(254,107,68,.92);
+        padding: 1em 2em;
+        color: #fff;
+    }
+}
+
+// 通報
+.Announce{
+    @extend %flex;
+    flex-flow: row wrap;
+    a{
+        @include flex-layout(2, 10px);
+        padding: 2.5em 2em 4em;
+        margin-bottom: .75em;
+        border-radius: 3px;
+        font-size: 1.25em;
+        font-weight: bold;
+        // color: #fff;
+
+        background-image: url(../images/bg-Announce.jpg);
+        background-position: right 50%;
+        // background-size: cover;
+        background-repeat: no-repeat;
+
+        position: relative;
+        overflow: hidden;
+
+        span{
+            position: absolute;
+            color: #fff;
+            z-index: 2;
+
+            // icon-more-arrow.png
+            &:after{
+                content: '';
+                background: url(../images/icon-more-arrow.png) right 50% no-repeat;
+                width: 50px;
+                height: 28px;
+                display: inline-block;
+                vertical-align: bottom;
+                margin-left: 0;
+                transition: all .6s ease;
+            }
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            z-index: 1;
+            width: 50%;
+            height: 100%;
+            // background: rgba(163,195,180,.3);
+            @include gradient(#67a43b, #549431, vertical);
+            left: -10%;
+            top: 0;
+            transform: skew(-30deg);
+
+            transition: all .6s ease;
+        }
+        
+        &:hover, &:focus{
+            span{
+                &:after{ margin-left: 50px; }
+            }
+
+            &:after{ width: 75%; }
+        }
+
+        @include screen('mobile') {
+            @include flex-layout(1, 0px);
+        }
+    }
+
+    @include screen('tablet') {
+        a{
+            &:after{
+                width: 70%;
+            }
+        }
+    }
+    @include screen('mobile') {
+        a{
+            &:after{
+                width: 60%;
+            }
+        }
+    }
+}
+
+
+
+
+

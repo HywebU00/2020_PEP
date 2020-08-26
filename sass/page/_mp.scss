@@ -106,7 +106,8 @@
         .tabSet{
             flex: 0 0 50%;
             .tabContent{
-                padding: 0 4px 20px;
+                // padding: 0 4px 20px;
+                padding: 30px 30px;
                 >p{
                     font-weight: bold;
                     line-height: 1.8;
@@ -283,6 +284,12 @@
         margin-top: 40px;
         .btn{
             padding: 12px 42px;
+        }
+    }
+
+    @include screen('mobile') {
+        h2.title{
+            margin: 2em 0 .5em;
         }
     }
 }
