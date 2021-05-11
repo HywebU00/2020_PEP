@@ -390,6 +390,20 @@ dl{
     }
 }
 
+// 地圖外掛按鈕調
+#TGMap{
+    table {
+        background: none;
+        width: auto;
+        left: 20px !important;
+        top: 40% !important;
+        td{
+            border: 0;
+            padding: 0;
+        }
+    }
+}
+
 
 
 
